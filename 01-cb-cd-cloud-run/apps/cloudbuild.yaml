@@ -1,0 +1,22 @@
+steps:
+# Build the Image  
+- name: 'gcr.io/cloud-builders/docker'
+  dir: '03-ci-cd-cloud-run/apps'
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/nginx:v1.1', '.' ]
+
+# Push the Image to Google Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  dir: '03-ci-cd-cloud-run/apps'
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/nginx:v1.1']
+
+# Deploy the Image to Public GKE via Google  Cloud Deploy Pipeline
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: bash
+  dir: '03-ci-cd-cloud-run/apps' 
+  args:
+  - '-c'
+  - 'gcloud beta deploy releases create rel-$(date +%y%m%d-%s) --delivery-pipeline=cloud-deploy-pipeline-run --region=us-central1  --images=image=us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/nginx:v1.1'
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY

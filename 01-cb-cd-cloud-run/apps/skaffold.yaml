@@ -1,0 +1,31 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+metadata: 
+  name: cloud-application
+profiles:
+- name: run1
+  manifests:
+   rawYaml:
+   - service1.yaml
+  deploy:
+   cloudrun: {}
+  verify:
+  - name: verify-integration-test
+    container:
+      name: myweb1
+      image: image 
+      command: ["/bin/bash"]
+      args: ["-c", "date"]
+- name: run2
+  manifests:
+    rawYaml:
+    - service2.yaml
+  deploy:
+    cloudrun: {}
+  verify:
+  - name: verify-integration-test
+    container:
+      name: myweb2
+      image: image 
+      command: ["/bin/bash"]
+      args: ["-c", "date"]
