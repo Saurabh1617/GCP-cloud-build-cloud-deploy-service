@@ -2,7 +2,7 @@
 
 ![Screenshot](image.png)
 
-This terraform code will create a manual cloud build trigger and cloud deploy pipeline/targets.
+This terraform code will create a manual cloud build trigger, artifacts registry and cloud deploy pipeline/targets.
 
 Step 1 : Fork this repository and connect to cloud build service
 

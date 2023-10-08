@@ -1,17 +1,14 @@
 # GCP-cloud-build-cloud-deploy-service through Terraform
 
 
-This Repository will be helpful to quickstart an implementation of ci/cd using Cloud Build, Cloud Deploy, Artifact registry, GKE or Cloud Run.
+This Repository will be helpful to quickstart an implementation of ci/cd using Cloud Build, Cloud Deploy, Artifact registry, Cloud Run.
 
-VPC, Subnets, Peerings and VPN's are created as part of provisioning private GKE clusters.
 
 ## Required Api's
 
 - cloudbuild.googleapis.com
 - clouddeploy.googleapis.com
-- container.googleapis.com
 - run.googleapis.com
-- servicenetworking.googleapis.com
 - artifactregistry.googleapis.com
 
 ## Disable cross project service account usage org policy
