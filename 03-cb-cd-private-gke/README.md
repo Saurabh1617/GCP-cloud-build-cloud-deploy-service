@@ -1,4 +1,4 @@
-# 01-cb-cd-private-gke
+# 03-cb-cd-private-gke
 
 ![Screenshot](private_gke_ci_cd.png)
 
