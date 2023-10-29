@@ -1,7 +1,7 @@
 # GCP-cloud-build-cloud-deploy-service through Terraform
 
 
-This Repository will be helpful to quickstart an implementation of ci/cd using Cloud Build, Cloud Deploy, Artifact registry, Cloud Run.
+This Repository will be helpful to quickstart an implementation of ci/cd using Cloud Build, Cloud Deploy, Artifact registry, Cloud Run and GKE.
 
 
 ## Required Api's
@@ -10,6 +10,8 @@ This Repository will be helpful to quickstart an implementation of ci/cd using C
 - clouddeploy.googleapis.com
 - run.googleapis.com
 - artifactregistry.googleapis.com
+- servicenetworking.googleapis.com
+- container.googleapis.com
 
 ## Disable cross project service account usage org policy
 

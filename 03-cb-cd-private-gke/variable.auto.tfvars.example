@@ -1,0 +1,11 @@
+source_project_id = "source-project"
+target_project_id = "target-project"
+
+/*
+
+For gke cluster having multiple worker pool and multiple service accounts, "node1@example.geserviceaccount.com,node2@example.gserviceaccount.com"
+
+*/
+
+gke_cluster_sa = "900000000000-compute@developer.gserviceaccount.com"
+repo_url       = "https://github.com/SudharsaneSivamany/GCP-cloud-build-cloud-deploy-service"

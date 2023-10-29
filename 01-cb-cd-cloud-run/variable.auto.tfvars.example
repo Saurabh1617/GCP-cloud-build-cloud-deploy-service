@@ -1,0 +1,13 @@
+source_project_id             = ""
+target_project_id             = ""
+
+/*
+
+For multiple cloud run service account use "egs1@example.gserviceaccount.com,eg2@example.gserviceaccount.com" 
+
+*/
+
+run_service_sa_target_project = ""  
+run_service_sa_source_project = ""
+
+repo_url = "https://github.com/SudharsaneSivamany/GCP-cloud-build-cloud-deploy-service"

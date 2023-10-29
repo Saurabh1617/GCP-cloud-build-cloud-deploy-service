@@ -4,6 +4,7 @@ resource "google_artifact_registry_repository" "my-repo" {
   repository_id = "my-repository"
   description   = "docker repository"
   format        = "DOCKER"
+
 }
 
 resource "google_cloudbuild_trigger" "manual-trigger" {
@@ -17,12 +18,11 @@ resource "google_cloudbuild_trigger" "manual-trigger" {
   }
 
   git_file_source {
-    path      = "01-cb-cd-cloud-run/apps/cloudbuild.yaml"
+    path      = "03-cb-cd-private-gke/apps/cloudbuild.yaml"
     uri       = var.repo_url
     revision  = "refs/heads/main"
     repo_type = "GITHUB"
   }
-
   service_account = "projects/${var.source_project_id}/serviceAccounts/${module.cloud_deploy.trigger_sa[0]}"
 
 }
