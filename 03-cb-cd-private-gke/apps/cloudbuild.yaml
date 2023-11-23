@@ -21,4 +21,4 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
   workerPool:
-    'projects/$PROJECT_ID/locations/us-central1/workerPools/private-pool'
+    'projects/$PROJECT_ID/locations/asia-south1/workerPools/private-pool'
