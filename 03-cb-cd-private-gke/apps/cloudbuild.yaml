@@ -15,10 +15,10 @@ steps:
   dir: '03-cb-cd-private-gke/apps'
   args:
   - '-c'
-  - 'gcloud beta deploy releases create rel-$(date +%y%m%d-%s) --delivery-pipeline=cloud-deploy-pipeline-pri-gke --region=asia-south1  --images=image=us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/nginx:v1.0'
+  - 'gcloud beta deploy releases create rel-$(date +%y%m%d-%s) --delivery-pipeline=cloud-deploy-pipeline-pri-gke --region=asia-south1  --images=image=europe-docker.pkg.dev/$PROJECT_ID/my-repository/nginx:v1.0'
 
 
 options:
   logging: CLOUD_LOGGING_ONLY
   workerPool:
-    'projects/$PROJECT_ID/locations/aisa-south1/workerPools/private-pool'
+    'projects/$PROJECT_ID/locations/us-central1/workerPools/private-pool'
