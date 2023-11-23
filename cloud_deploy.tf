@@ -1,7 +1,7 @@
 module "cloud_deploy" {
   source        = "github.com/GoogleCloudPlatform/terraform-google-cloud-deploy"
   pipeline_name = "cloud-deploy-pipeline-pri-gke"
-  location      = "europe-west2"
+  location      = "asia-south1"
   project       = var.source_project_id
   stage_targets = [{
     target_name   = "ns-pri"
