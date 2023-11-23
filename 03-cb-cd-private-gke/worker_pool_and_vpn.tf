@@ -17,7 +17,7 @@ locals {
   gke_config = [{
     network    = module.vpc.network_name
     project_id = var.target_project_id
-    location   = "me-central1"
+    location   = "asia-south1"
   }]
   gke_networks = {
     for net in local.gke_config : net.network => merge(net, local.vpn_config[net.network])
@@ -38,7 +38,7 @@ module "gke_cloudbuild_vpn" {
 
   source     = "GoogleCloudPlatform/secure-cicd/google//modules/workerpool-gke-ha-vpn"
   project_id = var.source_project_id
-  location   = "me-central1"
+  location   = "asia-south1"
 
   gke_project  = each.value.project_id
   gke_network  = each.value.network

@@ -11,8 +11,8 @@ module "gke" {
   version         	     = "27.0.0"	
   project_id                 = var.target_project_id
   name                       = "gke-private-cluster"
-  region                     = "me-central1"
-  zones                      = ["me-central1-a", "me-central1-b", "me-central1-c"]
+  region                     = "asia-south1"
+  zones                      = ["asia-south1-a", "asia-south1-b", "asia-south1-c"]
   network                    = module.vpc.network_name
   subnetwork                 = module.vpc.subnets_names[0]
   ip_range_pods              = "pod-range"
@@ -34,7 +34,7 @@ module "gke" {
   node_pools = [{
     name               = "default-node-pool" # Name for the Node Pool
     machine_type       = "e2-standard-4"     # Machine Type for Kubernetes Cluster
-    node_locations     = "me-central1-c"     # Region for Node Locations. Must Match VPC region to provision
+    node_locations     = "asia-south1-a"     # Region for Node Locations. Must Match VPC region to provision
     autoscaling        = true                # Enabling Auto Scaling for the Cluster
     auto_upgrade       = true                # Enabling Auto Upgrade Functionality
     initial_node_count = 1                   # Minimum Nodes required for ASM to work

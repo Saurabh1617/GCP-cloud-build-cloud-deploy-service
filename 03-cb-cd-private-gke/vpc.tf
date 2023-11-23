@@ -10,7 +10,7 @@ module "vpc" {
     {
       subnet_name           = "subnet-01"
       subnet_ip             = "10.244.252.0/22"
-      subnet_region         = "me-central1"
+      subnet_region         = "asia-south1"
       subnet_private_access = "true"
       subnet_flow_logs      = "true"
       description           = "This subnet has a description"
