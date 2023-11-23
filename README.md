@@ -1,19 +1,37 @@
-# GCP-cloud-build-cloud-deploy-service through Terraform
+# 03-cb-cd-private-gke
 
+![Screenshot](private_gke_ci_cd.png)
 
-This Repository will be helpful to quickstart an implementation of ci/cd using Cloud Build, Cloud Deploy, Artifact registry, Cloud Run and GKE.
+This terraform code will create a manual cloud build trigger, artifacts registry, cloud deploy pipeline/targets, vpc/subnets, private gke cluster, private worker pool, ha vpn and peerings.
 
+Step 1 : Fork this repository and connect to cloud build service
 
-## Required Api's
+https://cloud.google.com/build/docs/automating-builds/github/connect-repo-github#terraform_1
 
-- cloudbuild.googleapis.com
-- clouddeploy.googleapis.com
-- run.googleapis.com
-- artifactregistry.googleapis.com
-- servicenetworking.googleapis.com
-- container.googleapis.com
+Step 2 : Update the variable.auto.tfvars with project id. If the source and target project are same, update same in both the project ids variables.
 
-## Disable cross project service account usage org policy
+NOTE: If source and target project are not same, then disable `constraints/iam.disableCrossProjectServiceAccountUsage` organization policy on the target project.
 
-If source and target project are not same, then disable `constraints/iam.disableCrossProjectServiceAccountUsage` organization policy on the target project.
+Step 3 : Initialize Terraform
 
+```BASH
+terraform init
+```
+
+Step 4 : Terraform plan
+
+```BASH
+terraform plan
+```
+
+Step 5 : Terraform apply
+
+```BASH
+terraform apply
+```
+
+Step 6 : Terraform destroy
+
+```BASH
+terraform destroy
+```

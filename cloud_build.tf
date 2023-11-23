@@ -1,5 +1,5 @@
 resource "google_artifact_registry_repository" "my-repo" {
-  location      = "europe"
+  location      = "me-central1"
   project       = var.source_project_id
   repository_id = "my-repository"
   description   = "docker repository"
