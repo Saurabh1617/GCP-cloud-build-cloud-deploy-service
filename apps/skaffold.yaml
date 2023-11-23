@@ -1,0 +1,53 @@
+apiVersion: skaffold/v3alpha1
+kind: Config
+deploy:
+  kubectl: 
+    flags:
+      global: 
+      - --namespace=default
+manifests:
+  rawYaml:
+   - myapp.yaml
+profiles:
+- name: dev
+  patches:
+  - op: replace
+    path: /deploy/kubectl/flags/global/0
+    value: --namespace=dev
+  verify:
+  - name: verify-integration-test
+    container:
+      name: myweb
+      image: image
+      command: ["/bin/bash"]
+      args: ["-c", "date"]
+- name: qa
+  patches:
+  - op: replace
+    path: /deploy/kubectl/flags/global/0
+    value: --namespace=qa
+  verify:
+  - name: verify-integration-test
+    container:
+      name: myweb
+      image: image
+      command: ["/bin/bash"]
+      args: ["-c", "date"]
+- name: prod
+  patches: 
+  - op: replace
+    path: /deploy/kubectl/flags/global/0
+    value: --namespace=prod
+  verify:
+  - name: verify-integration-test
+    container:
+      name: myweb
+      image: image
+      command: ["/bin/bash"]
+      args: ["-c", "date"]
+- name: ns
+  deploy:
+   kubectl: {}
+  manifests:
+   rawYaml:
+     - ns.yaml
