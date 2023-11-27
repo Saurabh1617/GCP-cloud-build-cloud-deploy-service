@@ -17,7 +17,7 @@ kind: Service
 metadata:
  name: mywebsvc
 spec:
- type: LoadBalancer
+ type: CLusterIP
  ports:
  - port: 8080
    protocol: TCP
